@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}{% block title %}Update contact <small class="pull-right">{{ contact.name }}</small>{% endblock %}{% endblock %}
+
+{% block content %}
+
+<form action="" method="post" class="clearfix">{% csrf_token %}
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+  <div class="btn-group pull-right">
+    <a href="{% url 'contactmgr:contact_detail' contact.id %}" class="btn btn-default">Cancel</a>
+    <button type="submit" class="btn btn-danger">Confirm</button>
+  </div>
+</form>
+
+<br>
+
+<div class="text-center">
+  <a href="{% url 'contactmgr:contact_list' %}"><span class="glyphicon glyphicon-arrow-left"></span> Go back to contact list.</a>
+</div>
+
+{% endblock %}

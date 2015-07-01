@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+
+  <title>{% block title %}{% endblock %} | SOC Test - Andrea Gonzalez</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <header>
+        <h1 class="page-header">{% block pagetitle %}{% endblock %}</h1>
+      </header>
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+
+  <footer class="site-footer text-center text-muted">Andy &hearts;</footer>
+
+</body>
+</html>

@@ -6,3 +6,7 @@ Please do not spend more than 3 hours on this.
 4. Either demonstrate in code or provide an explanation in this README on how you would handle very large files.
 5. Either demonstrate in code or provide an explanation in this README on how you would handle different encodings.
 6. Submit this as a pull request.
+
+## Explanations!
+4. Process row by row instead of reading it all at once.
+5. Use the example in the python.org documentation, where you use `encode('utf-8')`.

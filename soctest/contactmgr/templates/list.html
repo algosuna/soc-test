@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}{% block title %}Contacts list{% endblock %}{% endblock %}
+
+{% block content %}
+
+{% if contacts %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contact in contacts %}
+    <tr>
+      <td>{{ contact.name }}</td>
+      <td class="text-right"><a href="{% url 'contactmgr:contact_detail' contact.id %}"><span class="glyphicon glyphicon-search"></span></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+  {% if is_paginated %}
+  <nav>
+
+    <ul class="pager">
+
+      <li class="previous">
+
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&larr;</span> Previous</a>
+        {% endif %}
+
+      </li>
+
+      <li class="text-muted">{{ page_obj }}</li>
+
+      <li class="next">
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
+
+      </li>
+
+    </ul>
+
+  </nav>
+  {% endif %}
+
+<div class="text-right">
+  <a href="{% url 'contactmgr:upload' %}"><span class="glyphicon glyphicon-upload"></span> Upload new file</a>
+</div>
+{% else %}
+<p class="text-muted text-center">You have no contacts! Import them <a href="{% url 'contactmgr:upload' %}">here</a>.</p>
+{% endif %}
+{% endblock %}

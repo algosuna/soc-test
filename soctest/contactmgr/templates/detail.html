@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}{% block title %}Contact detail <small class="pull-right">{{ contact.name }}</small>{% endblock %}{% endblock %}
+
+{% block content %}
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <td>{{ contact.name }}</td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>{{ contact.email }}</td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td>{{ contact.address1 }}<br>{{ contact.address2 }}</td>
+  </tr>
+  <tr>
+    <th>City</th>
+    <td>{{ contact.city }}</td>
+  </tr>
+  <tr>
+    <th>State</th>
+    <td>{{ contact.state }}</td>
+  </tr>
+  <tr>
+    <th>Postal Code</th>
+    <td>{{ contact.postal_code }}</td>
+  </tr>
+  <tr>
+    <th>Country</th>
+    <td>{{ contact.country }}</td>
+  </tr>
+  <tr>
+    <th>Phone Number</th>
+    <td>{{ contact.phone_number }}</td>
+  </tr>
+</table>
+<div class="text-right">
+  <a href="{% url 'contactmgr:contact_update' contact.id %}"><span class="glyphicon glyphicon-pencil"></span> Update Info</a>
+</div>
+{% endblock %}
